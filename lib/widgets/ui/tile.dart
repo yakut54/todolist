@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/colors.dart';
 import 'package:todolist/widgets/ui/checkbox.dart';
@@ -47,15 +48,17 @@ class TaleBtn extends StatelessWidget {
               ],
             ),
             Expanded(
-              flex: 4,
+              flex: 2,
               child: Column(
                 children: [
                   Container(
                     height: 35,
                     child: Align(
                       alignment: Alignment.bottomLeft,
-                      child:
-                          Text('Title Todo', style: theme.textTheme.bodyLarge),
+                      child: Text(
+                        'Title Todo',
+                        style: theme.textTheme.bodyLarge,
+                      ),
                     ),
                   ),
                   Container(
@@ -65,6 +68,7 @@ class TaleBtn extends StatelessWidget {
                       child: Text(
                         'Short Descriptions Todo...',
                         maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         softWrap: false,
                         style: theme.textTheme.bodyMedium,
                       ),
@@ -77,33 +81,59 @@ class TaleBtn extends StatelessWidget {
               flex: 1,
               child: Column(
                 children: [
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(border: Border.all(width: 1)),
+                  SizedBox(
+                    height: 70,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
                           flex: 1,
                           child: Container(
-                            width: 40,
-                            decoration:
-                                BoxDecoration(border: Border.all(width: 1)),
+                            // width: 35,
+                            // height: 35,
+                            decoration: BoxDecoration(
+                              color: GeneralColors.darkTurquoise,
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(
+                                width: 1,
+                                color: GeneralColors.orangePeach,
+                              ),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                CupertinoIcons.pencil,
+                                size: 30,
+                              ),
+                              onPressed: () {},
+                            ),
                           ),
                         ),
                         Expanded(
                           flex: 1,
                           child: Container(
-                            width: 45,
-                            decoration:
-                                BoxDecoration(border: Border.all(width: 1)),
+                            // width: 35,
+                            // height: 35,
+                            decoration: BoxDecoration(
+                              color: GeneralColors.darkTurquoise,
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(
+                                width: 1,
+                                color: GeneralColors.orangePeach,
+                              ),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                CupertinoIcons.delete,
+                                size: 30,
+                              ),
+                              onPressed: () {},
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Container(
-                    height: 20,
-                  )
                 ],
               ),
             )
@@ -113,11 +143,3 @@ class TaleBtn extends StatelessWidget {
     );
   }
 }
-
-// Container(
-//             height: 4,
-//             decoration: const BoxDecoration(
-//               color: Colors.red,
-
-//             ),
-//           ),

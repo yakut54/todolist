@@ -7,7 +7,10 @@ final checkbox = Column(
   crossAxisAlignment: CrossAxisAlignment.center,
   children: <Widget>[
     RoundCheckBox(
-      border: Border.all(width: 1, color: GeneralColors.darkTurquoise),
+      border: Border.all(
+        width: 1,
+        color: GeneralColors.orangePeach,
+      ),
       onTap: (selected) {
         print('RoundCheckBox');
       },
@@ -17,7 +20,7 @@ final checkbox = Column(
         color: GeneralColors.orangePeach,
       ),
       isChecked: true,
-      size: 30,
+      size: 35,
       checkedWidget: const Icon(
         Icons.check,
         color: GeneralColors.orangePeach,
