@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/theme/colors.dart';
 import 'package:todolist/widgets/index.dart';
-import '../../../theme/colors.dart';
 
 final appBar = AppBar(
   centerTitle: true,
