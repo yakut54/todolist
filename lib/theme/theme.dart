@@ -7,12 +7,12 @@ final theme = ThemeData(
     bodyLarge: TextStyle(
       color: GeneralColors.grayblue,
       fontFamily: 'akrobat_semibold',
-      fontSize: 24,
+      fontSize: 26,
     ),
     bodyMedium: TextStyle(
       color: GeneralColors.grayblue,
       fontFamily: 'akrobat_regular',
-      fontSize: 22,
+      fontSize: 20,
     ),
   ),
 );
