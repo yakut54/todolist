@@ -12,8 +12,6 @@ class TaleBtn extends StatefulWidget {
 }
 
 class _TaleBtnState extends State<TaleBtn> {
-  int a = 1;
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width - 22;
@@ -60,10 +58,7 @@ class _TaleBtnState extends State<TaleBtn> {
               flex: 3,
               child: InkWell(
                 onTap: () {
-                  setState(() {
-                    a++;
-                  });
-                  print(a);
+                  Navigator.of(context).pushNamed('/single');
                 },
                 child: Column(
                   children: [

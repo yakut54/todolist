@@ -12,16 +12,18 @@ class TodoListScreen extends StatefulWidget {
 class _TodoListScreenState extends State<TodoListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar,
-      body: Container(
-        padding: const EdgeInsets.only(top: 10),
-        decoration: backgroundGradient,
-        child: ListView.builder(
-          itemCount: 2,
-          itemBuilder: (context, i) {
-            return const TaleBtn();
-          },
+    return Container(
+      decoration: backgroundGradient,
+      child: Scaffold(
+        appBar: appBar,
+        body: Center(
+          child: ListView.builder(
+            itemCount: 62,
+            padding: const EdgeInsets.only(top: 10),
+            itemBuilder: (context, i) {
+              return const TaleBtn();
+            },
+          ),
         ),
       ),
     );
