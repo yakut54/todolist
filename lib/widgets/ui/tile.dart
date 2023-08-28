@@ -4,8 +4,15 @@ import 'package:todolist/theme/colors.dart';
 import 'package:todolist/theme/constants.dart';
 import 'package:todolist/widgets/ui/checkbox.dart';
 
-class TaleBtn extends StatelessWidget {
+class TaleBtn extends StatefulWidget {
   const TaleBtn({super.key});
+
+  @override
+  State<TaleBtn> createState() => _TaleBtnState();
+}
+
+class _TaleBtnState extends State<TaleBtn> {
+  int a = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -39,44 +46,52 @@ class TaleBtn extends StatelessWidget {
                 color: Color.fromARGB(255, 76, 54, 244),
               ),
             ),
-            Column(
+            const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   width: 45,
-                  child: checkbox,
+                  child: CheckboxWidget(),
                 ),
               ],
             ),
             Expanded(
               flex: 3,
-              child: Column(
-                children: [
-                  Container(
-                    height: 35,
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        'Title Todo',
-                        style: theme.textTheme.bodyLarge,
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    a++;
+                  });
+                  print(a);
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      height: 35,
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text(
+                          'Title Todo',
+                          style: theme.textTheme.bodyLarge,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    height: 35,
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Short Descriptions Todo...',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: false,
-                        style: theme.textTheme.bodyMedium,
+                    Container(
+                      height: 35,
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          'Short Descriptions Todo...',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                          style: theme.textTheme.bodyMedium,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(
