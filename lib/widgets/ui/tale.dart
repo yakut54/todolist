@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/colors.dart';
+import 'package:todolist/widgets/ui/checkbox.dart';
 
 class TaleBtn extends StatelessWidget {
   const TaleBtn({super.key});
@@ -7,36 +8,51 @@ class TaleBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width - 22;
+    final theme = Theme.of(context);
 
     return Container(
       width: screenWidth,
       margin:
           const EdgeInsets.only(top: 5.0, right: 10.0, bottom: 5.0, left: 10.0),
       decoration: BoxDecoration(
-        color: GeneralColors.tanColor,
+        color: GeneralColors.platinum,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
         children: [
           SizedBox(
-            height: 100,
+            height: 80,
             child: Row(
               children: [
-                Container(
-                  width: 40,
-                  decoration: BoxDecoration(border: Border.all(width: 1)),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      child: checkbox,
+                    ),
+                  ],
                 ),
                 Expanded(
                   flex: 3,
                   child: Column(
                     children: [
                       Container(
-                        height: 50,
-                        decoration: BoxDecoration(border: Border.all(width: 1)),
+                        height: 40,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text('Title Todo',
+                              style: theme.textTheme.bodyLarge),
+                        ),
                       ),
                       Container(
-                        height: 50,
-                        decoration: BoxDecoration(border: Border.all(width: 1)),
+                        height: 40,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text('Sort Descriptions Todo...',
+                              style: theme.textTheme.bodyMedium),
+                        ),
                       ),
                     ],
                   ),
@@ -46,22 +62,24 @@ class TaleBtn extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 80,
-                        decoration: BoxDecoration(color: Colors.deepPurple,border: Border.all(width: 1)),
+                        height: 60,
+                        decoration: BoxDecoration(border: Border.all(width: 1)),
                         child: Row(
                           children: [
                             Expanded(
                               flex: 1,
                               child: Container(
                                 width: 40,
-                                decoration: BoxDecoration(border: Border.all(width: 1)),
+                                decoration:
+                                    BoxDecoration(border: Border.all(width: 1)),
                               ),
                             ),
                             Expanded(
                               flex: 1,
                               child: Container(
                                 width: 45,
-                                decoration: BoxDecoration(border: Border.all(width: 1)),
+                                decoration:
+                                    BoxDecoration(border: Border.all(width: 1)),
                               ),
                             ),
                           ],
@@ -69,7 +87,6 @@ class TaleBtn extends StatelessWidget {
                       ),
                       Container(
                         height: 20,
-                        decoration: const BoxDecoration(color: Colors.green),
                       )
                     ],
                   ),
@@ -78,7 +95,7 @@ class TaleBtn extends StatelessWidget {
             ),
           ),
           Container(
-            height: 10,
+            height: 4,
             decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.only(
