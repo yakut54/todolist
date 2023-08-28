@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/colors.dart';
+import 'package:todolist/theme/constants.dart';
 import 'package:todolist/widgets/ui/checkbox.dart';
 
 class TaleBtn extends StatelessWidget {
@@ -13,6 +14,7 @@ class TaleBtn extends StatelessWidget {
 
     return Container(
       width: screenWidth,
+      padding: const EdgeInsets.only(right: 5),
       margin: const EdgeInsets.only(
         top: 5.0,
         right: 10.0,
@@ -48,7 +50,7 @@ class TaleBtn extends StatelessWidget {
               ],
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Column(
                 children: [
                   Container(
@@ -77,66 +79,58 @@ class TaleBtn extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Column(
+            SizedBox(
+              height: 70,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 70,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            // width: 35,
-                            // height: 35,
-                            decoration: BoxDecoration(
-                              color: GeneralColors.darkTurquoise,
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                width: 1,
-                                color: GeneralColors.orangePeach,
-                              ),
-                            ),
-                            child: IconButton(
-                              icon: const Icon(
-                                CupertinoIcons.pencil,
-                                size: 30,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            // width: 35,
-                            // height: 35,
-                            decoration: BoxDecoration(
-                              color: GeneralColors.darkTurquoise,
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                width: 1,
-                                color: GeneralColors.orangePeach,
-                              ),
-                            ),
-                            child: IconButton(
-                              icon: const Icon(
-                                CupertinoIcons.delete,
-                                size: 30,
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ),
-                      ],
+                  Container(
+                    width: TileIcons.size,
+                    height: TileIcons.size,
+                    decoration: BoxDecoration(
+                      color: GeneralColors.darkTurquoise,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        width: 1,
+                        color: GeneralColors.orangePeach,
+                      ),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        CupertinoIcons.pencil,
+                        color: GeneralColors.orangePeach,
+                        size: 20,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 5,
+                    ),
+                    width: TileIcons.size,
+                    height: TileIcons.size,
+                    decoration: BoxDecoration(
+                      color: GeneralColors.darkTurquoise,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        width: 1,
+                        color: GeneralColors.orangePeach,
+                      ),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        CupertinoIcons.delete,
+                        color: GeneralColors.orangePeach,
+                        size: 20,
+                      ),
+                      onPressed: () {},
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
