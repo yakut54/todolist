@@ -19,15 +19,11 @@ class _TaleBtnState extends State<TaleBtn> {
     return Container(
       width: screenWidth,
       padding: const EdgeInsets.only(right: 5),
-      margin: const EdgeInsets.only(
-        top: 5.0,
-        right: 10.0,
-        bottom: 5.0,
-        left: 10.0,
-      ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: GeneralColors.platinum,
-        borderRadius: BorderRadius.circular(5),
+        border: Border(
+          bottom: BorderSide(width: 1.5, color: GeneralColors.grayblue),
+        ),
       ),
       child: SizedBox(
         height: 70,
@@ -36,10 +32,6 @@ class _TaleBtnState extends State<TaleBtn> {
             Container(
               width: 6,
               decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(5),
-                  topLeft: Radius.circular(5),
-                ),
                 color: GeneralColors.fiolet,
               ),
             ),
@@ -62,19 +54,9 @@ class _TaleBtnState extends State<TaleBtn> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 35,
+                      height: 70,
                       child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          'Title Todo',
-                          style: theme.textTheme.bodyLarge,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 35,
-                      child: Align(
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.centerLeft,
                         child: Text(
                           'Short Descriptions Todo...',
                           maxLines: 1,

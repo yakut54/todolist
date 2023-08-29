@@ -43,14 +43,21 @@ class _SingleTodoScreenState extends State<SingleTodoScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             RichTextWidget(
-                                span: 'Дата создания: ', bold: '29/08/2023'),
+                                span: 'Дата создания: ',
+                                bold: '29/08/2023',
+                                key: Key('29/08/2023')),
                             RichTextWidget(
-                                span: 'Времени прошло: ', bold: '2д 14ч 18м'),
+                                span: 'Времени прошло: ',
+                                bold: '2д 14ч 18м',
+                                key: Key('2д 14ч 18м')),
                             RichTextWidget(
-                                span: 'Дедлайн: ', bold: '31/12/2023'),
+                                span: 'Дедлайн: ',
+                                bold: '31/12/2023',
+                                key: Key('31/12/2023')),
                             RichTextWidget(
                                 span: 'Времени осталось: ',
-                                bold: '125д 17ч 3м'),
+                                bold: '125д 17ч 3м',
+                                key: Key('125д 17ч 3м')),
                           ],
                         ),
                       ),
@@ -108,13 +115,14 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                       child: const Text(
                         'Редактировать',
                         style: TextStyle(
-                            fontFamily: FontFamily.semiFont,
-                            fontSize: FontSize.mainFont,
-                            color: GeneralColors.grayblue),
+                          fontFamily: FontFamily.semiFont,
+                          fontSize: FontSize.mainFont,
+                          color: GeneralColors.grayblue,
+                        ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                       child: ElevatedButton(
                         style: const ButtonStyle(
                           backgroundColor: MaterialStatePropertyAll(

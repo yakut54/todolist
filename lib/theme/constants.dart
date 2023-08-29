@@ -11,8 +11,7 @@ abstract class FontFamily {
 
 abstract class FontSize {
   static const double header = 24;
-  static const double tileTitle = 24;
-  static const double tileSubtitle = 19;
+  static const double tileTitle = 22;
   static const double mainFont = 19;
 }
 
