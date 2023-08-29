@@ -3,8 +3,8 @@ import 'package:todolist/widgets/index.dart';
 
 final appBar = AppBar(
   centerTitle: true,
-  title: const Text(
-    'СПИСОК ДЕЛ',
+  title: Text(
+    'Todo list'.toUpperCase(),
     textAlign: TextAlign.center,
   ),
   actions: const [AddBtn()],

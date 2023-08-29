@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/colors.dart';
 import 'package:todolist/theme/constants.dart';
 import 'package:todolist/widgets/ui/checkbox.dart';
 
@@ -35,13 +34,13 @@ class _TaleBtnState extends State<TaleBtn> {
         child: Row(
           children: [
             Container(
-              width: 4,
+              width: 6,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(5),
                   topLeft: Radius.circular(5),
                 ),
-                color: Color.fromARGB(255, 76, 54, 244),
+                color: GeneralColors.fiolet,
               ),
             ),
             const Column(

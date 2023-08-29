@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
-import 'package:todolist/theme/colors.dart';
+import 'package:todolist/theme/constants.dart';
 
 class CheckboxWidget extends StatelessWidget {
   const CheckboxWidget({super.key});

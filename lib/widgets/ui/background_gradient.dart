@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/colors.dart';
+import 'package:todolist/theme/constants.dart';
 
 const backgroundGradient = BoxDecoration(
   gradient: LinearGradient(
