@@ -14,14 +14,14 @@ final theme = ThemeData(
   ),
   textTheme: const TextTheme(
     bodyLarge: TextStyle(
-      color: GeneralColors.grayblue,
-      fontFamily: FontFamily.semiFont,
-      fontSize: FontSize.tileTitle,
-    ),
+        color: GeneralColors.grayblue,
+        fontFamily: FontFamily.semiFont,
+        fontSize: FontSize.tileTitle,
+        height: 0.6),
     bodyMedium: TextStyle(
-      color: GeneralColors.grayblue,
-      fontFamily: FontFamily.regularFont,
-      fontSize: FontSize.tileSubtitle,
-    ),
+        color: GeneralColors.grayblue,
+        fontFamily: FontFamily.regularFont,
+        fontSize: FontSize.tileSubtitle,
+        height: 1.4),
   ),
 );

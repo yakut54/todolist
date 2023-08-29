@@ -61,7 +61,7 @@ class _TaleBtnState extends State<TaleBtn> {
                 },
                 child: Column(
                   children: [
-                    Container(
+                    SizedBox(
                       height: 35,
                       child: Align(
                         alignment: Alignment.bottomLeft,
@@ -71,7 +71,7 @@ class _TaleBtnState extends State<TaleBtn> {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 35,
                       child: Align(
                         alignment: Alignment.topLeft,

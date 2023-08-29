@@ -18,7 +18,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
         appBar: appBar,
         body: Center(
           child: ListView.builder(
-            itemCount: 62,
+            itemCount: 2,
             padding: const EdgeInsets.only(top: 10),
             itemBuilder: (context, i) {
               return const TaleBtn();

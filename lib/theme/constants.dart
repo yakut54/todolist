@@ -5,15 +5,15 @@ abstract class TileIcons {
 }
 
 abstract class FontFamily {
-  static const regularFont = 'akrobat_regular';
-  static const semiFont = 'akrobat_semibold';
+  static const regularFont = 'google_regular';
+  static const semiFont = 'google_bold';
 }
 
 abstract class FontSize {
-  static const double header = 26;
-  static const double tileTitle = 26;
-  static const double tileSubtitle = 20;
-  static const double mainFont = 20;
+  static const double header = 24;
+  static const double tileTitle = 24;
+  static const double tileSubtitle = 19;
+  static const double mainFont = 19;
 }
 
 abstract class GeneralColors {

@@ -30,9 +30,22 @@ flutter:
     - family: akrobat_regular
       fonts:
         - asset: ./fonts/akrobat_regular.otf
+
     - family: akrobat_semibold
       fonts:
         - asset: ./fonts/akrobat_semibold.otf
+
+    - family: google_regular
+      fonts:
+        - asset: ./fonts/google_regular.ttf
+
+    - family: google_medium
+      fonts:
+        - asset: ./fonts/google_medium.ttf
+
+    - family: google_bold
+      fonts:
+        - asset: ./fonts/google_bold.ttf
 
   #
   # For details regarding fonts from package dependencies,
