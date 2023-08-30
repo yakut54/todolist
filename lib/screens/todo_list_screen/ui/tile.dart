@@ -77,44 +77,19 @@ class _TaleBtnState extends State<TaleBtn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: TileIcons.size,
-                    height: TileIcons.size,
-                    decoration: BoxDecoration(
-                      color: GeneralColors.darkTurquoise,
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(
-                        width: 1,
-                        color: GeneralColors.orangePeach,
-                      ),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(
-                        CupertinoIcons.pencil,
-                        color: GeneralColors.orangePeach,
-                        size: 20,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                  Container(
                     margin: const EdgeInsets.only(
                       left: 5,
                     ),
                     width: TileIcons.size,
                     height: TileIcons.size,
-                    decoration: BoxDecoration(
-                      color: GeneralColors.darkTurquoise,
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(
-                        width: 1,
-                        color: GeneralColors.orangePeach,
-                      ),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
                     ),
                     child: IconButton(
                       icon: const Icon(
                         CupertinoIcons.delete,
-                        color: GeneralColors.orangePeach,
-                        size: 20,
+                        color: GeneralColors.darkTurquoise,
+                        size: 25,
                       ),
                       onPressed: () {},
                     ),
