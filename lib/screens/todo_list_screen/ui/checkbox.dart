@@ -14,7 +14,7 @@ class CheckboxWidget extends StatelessWidget {
         RoundCheckBox(
           border: Border.all(
             width: 1,
-            color: const Color.fromARGB(0, 17, 101, 102),
+            color: const Color.fromARGB(0, 0, 0, 0),
           ),
           onTap: (selected) {
             print('RoundCheckBox');
@@ -28,10 +28,10 @@ class CheckboxWidget extends StatelessWidget {
           size: 30,
           checkedWidget: const Icon(
             Icons.check,
-            color: GeneralColors.orangePeach,
-            size: 20,
+            color: GeneralColors.darkTurquoise,
+            size: 25,
           ),
-          checkedColor: GeneralColors.darkTurquoise,
+          checkedColor: const Color(0x00000000),
           animationDuration: const Duration(
             milliseconds: 200,
           ),

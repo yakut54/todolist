@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/theme/constants.dart';
-import 'package:todolist/widgets/ui/checkbox.dart';
+import 'package:todolist/screens/todo_list_screen/ui/checkbox.dart';
 
 class TaleBtn extends StatefulWidget {
   const TaleBtn({super.key});
@@ -77,9 +77,7 @@ class _TaleBtnState extends State<TaleBtn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(
-                      left: 5,
-                    ),
+                    margin: const EdgeInsets.only(left: 5, bottom: 5),
                     width: TileIcons.size,
                     height: TileIcons.size,
                     decoration: const BoxDecoration(
