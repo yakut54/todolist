@@ -9,6 +9,6 @@ const backgroundGradient = BoxDecoration(
       GeneralColors.grayblue,
       GeneralColors.darkTurquoise,
     ],
-    stops: [0.0, 0.2, 0.8, 1.0],
+    stops: [0.0, 0.3, 0.7, 1.0],
   ),
 );

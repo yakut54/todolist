@@ -15,7 +15,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
     return Container(
       decoration: backgroundGradient,
       child: Scaffold(
-        appBar: appBar,
+        appBar: const AppBarListScreen(),
         body: Center(
           child: ListView.builder(
             itemCount: 2,
