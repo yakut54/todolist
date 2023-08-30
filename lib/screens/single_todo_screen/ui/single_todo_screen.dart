@@ -35,8 +35,11 @@ class _SingleTodoScreenState extends State<SingleTodoScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Expanded(
-                      flex: 1,
+                    Container(
+                      width: 10,
+                      color: GeneralColors.fiolet,
+                    ),
+                    Container(
                       child: Padding(
                         padding: EdgeInsets.all(10),
                         child: Column(
@@ -61,16 +64,12 @@ class _SingleTodoScreenState extends State<SingleTodoScreen> {
                           ],
                         ),
                       ),
-                    ),
-                    ClipPath(
-                      clipper: MyCustomClipper(),
-                      child: const Triangle(),
-                    ),
+                    )
                   ],
                 ),
               ),
               SizedBox(
-                height: 300,
+                height: 195,
                 child: Align(
                   child: Container(
                     margin: const EdgeInsets.all(8),
@@ -100,7 +99,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(right: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -152,29 +151,3 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
   }
 }
 
-class Triangle extends StatelessWidget {
-  const Triangle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: const BoxDecoration(color: GeneralColors.blue),
-    );
-  }
-}
-
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path()
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height)
-      ..close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
