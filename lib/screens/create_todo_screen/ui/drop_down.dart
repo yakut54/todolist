@@ -40,7 +40,11 @@ class _DropDownState extends State<DropDownWidget> {
           controller: _controller,
           menuStyle: MenuStyle(
             backgroundColor:
+<<<<<<< HEAD
                 MaterialStateProperty.all<Color>(GeneralColors.platinum),
+=======
+                MaterialStateProperty.all<Color>(GeneralColors.grayblue),
+>>>>>>> origin/day_6
           ),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: Colors.white12,
@@ -70,11 +74,19 @@ class _DropDownState extends State<DropDownWidget> {
             return DropdownMenuEntry<String>(
               value: value,
               label: value,
+<<<<<<< HEAD
               leadingIcon: const Icon(Icons.area_chart_rounded, color: GeneralColors.darkTurquoise,),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(GeneralColors.platinum),
                 textStyle: MaterialStateProperty.all<TextStyle>(
                   const TextStyle(
+=======
+              leadingIcon: Icon(Icons.area_chart_rounded, color: GeneralColors.orangePeach,),
+              style: ButtonStyle(
+                textStyle: MaterialStateProperty.all<TextStyle>(
+                  const TextStyle(
+                    color: Colors.white,
+>>>>>>> origin/day_6
                     fontFamily: FontFamily.regularFont,
                     fontSize: 22,
                   ),
