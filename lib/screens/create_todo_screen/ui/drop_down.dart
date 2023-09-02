@@ -31,20 +31,16 @@ class _DropDownState extends State<DropDownWidget> {
     return Expanded(
       child: SizedBox(
         child: DropdownMenu<String>(
+          controller: _controller,
           width: MediaQuery.of(context).size.width / 1.3,
           textStyle: const TextStyle(
             color: GeneralColors.platinum,
             fontFamily: FontFamily.regularFont,
             fontSize: 22,
           ),
-          controller: _controller,
           menuStyle: MenuStyle(
             backgroundColor:
-<<<<<<< HEAD
-                MaterialStateProperty.all<Color>(GeneralColors.platinum),
-=======
-                MaterialStateProperty.all<Color>(GeneralColors.grayblue),
->>>>>>> origin/day_6
+            MaterialStateProperty.all<Color>(GeneralColors.platinum),
           ),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: Colors.white12,
@@ -74,19 +70,13 @@ class _DropDownState extends State<DropDownWidget> {
             return DropdownMenuEntry<String>(
               value: value,
               label: value,
-<<<<<<< HEAD
-              leadingIcon: const Icon(Icons.area_chart_rounded, color: GeneralColors.darkTurquoise,),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(GeneralColors.platinum),
-                textStyle: MaterialStateProperty.all<TextStyle>(
-                  const TextStyle(
-=======
-              leadingIcon: Icon(Icons.area_chart_rounded, color: GeneralColors.orangePeach,),
+              leadingIcon: const Icon(
+                Icons.area_chart_rounded,
+                color: GeneralColors.darkTurquoise,
+              ),
               style: ButtonStyle(
                 textStyle: MaterialStateProperty.all<TextStyle>(
                   const TextStyle(
-                    color: Colors.white,
->>>>>>> origin/day_6
                     fontFamily: FontFamily.regularFont,
                     fontSize: 22,
                   ),
@@ -97,6 +87,7 @@ class _DropDownState extends State<DropDownWidget> {
           onSelected: (String? value) {
             setState(() {
               selectedItem = value!;
+              print(selectedItem);
             });
           },
         ),
