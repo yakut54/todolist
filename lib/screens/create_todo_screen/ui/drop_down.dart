@@ -9,12 +9,22 @@ class DropDownWidget extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDownWidget> {
-  List<String> list = ['Item 1', 'Item 2', 'Item 3'];
-
-  List<Map<String, String>> test = [
-    {'Item 1': 'huj'},
-    {'Item 2': 'pesda'},
-    {'Item 3': 'jigurda'}
+  List<Map<String, Object>> listUiData = [
+    {
+      'name': 'Важно',
+      'icon': Icons.looks_3,
+      'color': GeneralColors.green
+    },
+    {
+      'name': 'Очень Важно',
+      'icon': Icons.looks_two,
+      'color': GeneralColors.blue
+    },
+    {
+      'name': 'Критически Важно',
+      'icon': Icons.looks_one,
+      'color': GeneralColors.fiolet
+    },
   ];
 
   String? selectedItem;
@@ -22,7 +32,7 @@ class _DropDownState extends State<DropDownWidget> {
 
   @override
   void initState() {
-    selectedItem = list.first;
+    selectedItem = listUiData.first['name'] as String?;
     super.initState();
   }
 
@@ -40,7 +50,7 @@ class _DropDownState extends State<DropDownWidget> {
           ),
           menuStyle: MenuStyle(
             backgroundColor:
-            MaterialStateProperty.all<Color>(GeneralColors.platinum),
+                MaterialStateProperty.all<Color>(GeneralColors.platinum),
           ),
           inputDecorationTheme: InputDecorationTheme(
             fillColor: Colors.white12,
@@ -60,19 +70,19 @@ class _DropDownState extends State<DropDownWidget> {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          initialSelection: list.first,
+          initialSelection: listUiData.first['name'] as String,
           trailingIcon: const Icon(
             size: 30,
             Icons.keyboard_arrow_down_outlined,
             color: GeneralColors.orangePeach,
           ),
-          dropdownMenuEntries: list.map((String value) {
+          dropdownMenuEntries: listUiData.map((Map<String, Object> value) {
             return DropdownMenuEntry<String>(
-              value: value,
-              label: value,
-              leadingIcon: const Icon(
-                Icons.area_chart_rounded,
-                color: GeneralColors.darkTurquoise,
+              value: value['name'] as String,
+              label: value['name'] as String,
+              leadingIcon: Icon(
+                value['icon'] as IconData,
+                color: value['color'] as Color,
               ),
               style: ButtonStyle(
                 textStyle: MaterialStateProperty.all<TextStyle>(
@@ -87,7 +97,6 @@ class _DropDownState extends State<DropDownWidget> {
           onSelected: (String? value) {
             setState(() {
               selectedItem = value!;
-              print(selectedItem);
             });
           },
         ),
