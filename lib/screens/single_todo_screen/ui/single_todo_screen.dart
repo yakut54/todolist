@@ -37,7 +37,7 @@ class _SingleTodoScreenState extends State<SingleTodoScreen> {
                   children: [
                     Container(
                       width: 10,
-                      color: GeneralColors.fiolet,
+                      color: GeneralColors.violet,
                     ),
                     Container(
                       child: Padding(

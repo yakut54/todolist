@@ -9,40 +9,43 @@ class DropDownWidget extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDownWidget> {
-  List<Map<String, Object>> listUiData = [
-    {
-      'name': 'Важно',
-      'icon': Icons.looks_3,
-      'color': GeneralColors.green
-    },
-    {
-      'name': 'Очень Важно',
-      'icon': Icons.looks_two,
-      'color': GeneralColors.blue
-    },
-    {
-      'name': 'Критически Важно',
-      'icon': Icons.looks_one,
-      'color': GeneralColors.fiolet
-    },
-  ];
-
-  String? selectedItem;
-  final _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
+  ImortanceLabel? selectedColor;
 
   @override
   void initState() {
-    selectedItem = listUiData.first['name'] as String?;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final List<DropdownMenuEntry<ImortanceLabel>> colorEntries = [];
+    for (final ImortanceLabel item in ImortanceLabel.values) {
+      colorEntries.add(
+        DropdownMenuEntry<ImortanceLabel>(
+          leadingIcon: Icon(
+            item.icon,
+            color: item.color,
+          ),
+          value: item,
+          label: item.name,
+          style: ButtonStyle(
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              const TextStyle(
+                fontFamily: FontFamily.regularFont,
+                fontSize: 22,
+              ),
+            ),
+          )
+        ),
+      );
+    }
+
     return Expanded(
       child: SizedBox(
-        child: DropdownMenu<String>(
+        child: DropdownMenu<ImortanceLabel>(
           controller: _controller,
-          width: MediaQuery.of(context).size.width / 1.3,
+          width: MediaQuery.of(context).size.width - 16 - 65 - 16,
           textStyle: const TextStyle(
             color: GeneralColors.platinum,
             fontFamily: FontFamily.regularFont,
@@ -70,37 +73,33 @@ class _DropDownState extends State<DropDownWidget> {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          initialSelection: listUiData.first['name'] as String,
+          initialSelection: ImortanceLabel.blue,
           trailingIcon: const Icon(
             size: 30,
             Icons.keyboard_arrow_down_outlined,
             color: GeneralColors.orangePeach,
           ),
-          dropdownMenuEntries: listUiData.map((Map<String, Object> value) {
-            return DropdownMenuEntry<String>(
-              value: value['name'] as String,
-              label: value['name'] as String,
-              leadingIcon: Icon(
-                value['icon'] as IconData,
-                color: value['color'] as Color,
-              ),
-              style: ButtonStyle(
-                textStyle: MaterialStateProperty.all<TextStyle>(
-                  const TextStyle(
-                    fontFamily: FontFamily.regularFont,
-                    fontSize: 22,
-                  ),
-                ),
-              ),
-            );
-          }).toList(),
-          onSelected: (String? value) {
+          dropdownMenuEntries: colorEntries,
+          onSelected: (ImortanceLabel? huj) {
             setState(() {
-              selectedItem = value!;
+              selectedColor = huj;
+              print(selectedColor);
             });
           },
         ),
       ),
     );
   }
+}
+
+enum ImortanceLabel {
+  green('Важно', GeneralColors.green, Icons.looks_3),
+  blue('Очень Важно', GeneralColors.blue, Icons.looks_two),
+  violet('Критически Важно', GeneralColors.violet, Icons.looks_one);
+
+  const ImortanceLabel(this.name, this.color, this.icon);
+
+  final String name;
+  final Color color;
+  final IconData icon;
 }

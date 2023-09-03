@@ -23,5 +23,5 @@ abstract class GeneralColors {
   static const Color platinum = Color(0xFFD1E8E2);
   static const Color green = Color.fromARGB(255, 0, 148, 0);
   static const Color blue = Color.fromARGB(227, 32, 32, 255);
-  static const Color fiolet = Color.fromARGB(255, 105, 0, 198);
+  static const Color violet = Color.fromARGB(255, 174, 0, 177);
 }

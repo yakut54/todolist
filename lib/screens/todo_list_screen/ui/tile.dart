@@ -32,7 +32,7 @@ class _TaleBtnState extends State<TaleBtn> {
             Container(
               width: 6,
               decoration: const BoxDecoration(
-                color: GeneralColors.fiolet,
+                color: GeneralColors.violet,
               ),
             ),
             const Column(

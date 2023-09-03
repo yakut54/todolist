@@ -27,11 +27,11 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
           ),
           title: Text('Create Screen'.toUpperCase()),
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             children: [
-              const TextFieldWidget(),
-              const Padding(
+              TextFieldWidget(),
+              Padding(
                 padding: EdgeInsets.only(left: 10, right: 10),
                 child: Row(
                   children: [
