@@ -20,9 +20,10 @@ class _DegreeImportanceIconWidgetState
         width: 65,
         height: 65,
         decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            border: Border.all(color: GeneralColors.green),
-            color: GeneralColors.darkTurquoise),
+          shape: BoxShape.rectangle,
+          border: Border.all(color: GeneralColors.green),
+          color: GeneralColors.platinum,
+        ),
         child: const Icon(
           Icons.looks_3,
           size: 60,

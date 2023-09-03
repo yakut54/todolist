@@ -10,18 +10,13 @@ class DropDownWidget extends StatefulWidget {
 
 class _DropDownState extends State<DropDownWidget> {
   final TextEditingController _controller = TextEditingController();
-  ImortanceLabel? selectedColor;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  ImortanceLabel? selectedLabel;
 
   @override
   Widget build(BuildContext context) {
-    final List<DropdownMenuEntry<ImortanceLabel>> colorEntries = [];
+    final List<DropdownMenuEntry<ImortanceLabel>> imortanceEntries = [];
     for (final ImortanceLabel item in ImortanceLabel.values) {
-      colorEntries.add(
+      imortanceEntries.add(
         DropdownMenuEntry<ImortanceLabel>(
           leadingIcon: Icon(
             item.icon,
@@ -30,10 +25,11 @@ class _DropDownState extends State<DropDownWidget> {
           value: item,
           label: item.name,
           style: ButtonStyle(
-            textStyle: MaterialStateProperty.all<TextStyle>(
+            foregroundColor: MaterialStateProperty.all(GeneralColors.grayblue),
+            textStyle: MaterialStateProperty.all(
               const TextStyle(
                 fontFamily: FontFamily.regularFont,
-                fontSize: 22,
+                fontSize: 22
               ),
             ),
           )
@@ -45,7 +41,7 @@ class _DropDownState extends State<DropDownWidget> {
       child: SizedBox(
         child: DropdownMenu<ImortanceLabel>(
           controller: _controller,
-          width: MediaQuery.of(context).size.width - 16 - 65 - 16,
+          width: MediaQuery.of(context).size.width - 100,
           textStyle: const TextStyle(
             color: GeneralColors.platinum,
             fontFamily: FontFamily.regularFont,
@@ -73,17 +69,16 @@ class _DropDownState extends State<DropDownWidget> {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          initialSelection: ImortanceLabel.blue,
+          initialSelection: ImortanceLabel.green,
           trailingIcon: const Icon(
             size: 30,
             Icons.keyboard_arrow_down_outlined,
             color: GeneralColors.orangePeach,
           ),
-          dropdownMenuEntries: colorEntries,
-          onSelected: (ImortanceLabel? huj) {
+          dropdownMenuEntries: imortanceEntries,
+          onSelected: (ImortanceLabel? value) {
             setState(() {
-              selectedColor = huj;
-              print(selectedColor);
+              selectedLabel = value;
             });
           },
         ),

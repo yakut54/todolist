@@ -1,10 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todolist/db/db.dart';
+import 'package:todolist/db/todo_model.dart';
 import 'package:todolist/theme/constants.dart';
 import 'package:todolist/screens/todo_list_screen/ui/checkbox.dart';
 
 class TaleBtn extends StatefulWidget {
-  const TaleBtn({super.key});
+  const TaleBtn({
+    super.key,
+    required this.todo,
+  });
+
+  final Todo todo;
 
   @override
   State<TaleBtn> createState() => _TaleBtnState();
@@ -13,11 +20,9 @@ class TaleBtn extends StatefulWidget {
 class _TaleBtnState extends State<TaleBtn> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width - 22;
     final theme = Theme.of(context);
 
     return Container(
-      width: screenWidth,
       padding: const EdgeInsets.only(right: 5),
       decoration: const BoxDecoration(
         color: GeneralColors.platinum,
@@ -58,7 +63,7 @@ class _TaleBtnState extends State<TaleBtn> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Short Descriptions Todo...',
+                          widget.todo.name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           softWrap: false,
@@ -89,7 +94,9 @@ class _TaleBtnState extends State<TaleBtn> {
                         color: GeneralColors.darkTurquoise,
                         size: 25,
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        await LDB().deleteTodo(widget.todo.id!);
+                      },
                     ),
                   ),
                 ],
