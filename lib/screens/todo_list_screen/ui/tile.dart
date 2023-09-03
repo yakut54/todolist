@@ -1,23 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todolist/db/db.dart';
+import 'package:todolist/db/todo_model.dart';
+import 'package:todolist/repository/local_todo_repo.dart';
 import 'package:todolist/theme/constants.dart';
 import 'package:todolist/screens/todo_list_screen/ui/checkbox.dart';
 
-class TaleBtn extends StatefulWidget {
-  const TaleBtn({super.key});
+class TaleBtn extends StatelessWidget {
+  final Todo todo;
 
-  @override
-  State<TaleBtn> createState() => _TaleBtnState();
-}
+  const TaleBtn({
+    super.key,
+    required this.todo,
+  });
 
-class _TaleBtnState extends State<TaleBtn> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width - 22;
     final theme = Theme.of(context);
+    Color importanceColor;
+
+    if (todo.importance == 'green') {
+      importanceColor = GeneralColors.green;
+    } else if (todo.importance == 'blue') {
+      importanceColor = GeneralColors.blue;
+    } else {
+      importanceColor = GeneralColors.violet;
+    }
 
     return Container(
-      width: screenWidth,
       padding: const EdgeInsets.only(right: 5),
       decoration: const BoxDecoration(
         color: GeneralColors.platinum,
@@ -31,17 +41,18 @@ class _TaleBtnState extends State<TaleBtn> {
           children: [
             Container(
               width: 6,
-              decoration: const BoxDecoration(
-                color: GeneralColors.violet,
+              decoration: BoxDecoration(
+                color: importanceColor,
               ),
             ),
-            const Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   width: 45,
-                  child: CheckboxWidget(),
+                  child:
+                      CheckboxWidget(isDone: todo.isDone == 1 ? true : false),
                 ),
               ],
             ),
@@ -58,11 +69,19 @@ class _TaleBtnState extends State<TaleBtn> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Short Descriptions Todo...',
+                          todo.name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           softWrap: false,
-                          style: theme.textTheme.bodyMedium,
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: FontFamily.regularFont,
+                              color: GeneralColors.darkTurquoise,
+                              decoration: todo.isDone == 1
+                                  ? TextDecoration.lineThrough
+                                  : TextDecoration.none,
+                              decorationStyle: TextDecorationStyle.solid,
+                              decorationColor: importanceColor),
                         ),
                       ),
                     ),
@@ -89,7 +108,9 @@ class _TaleBtnState extends State<TaleBtn> {
                         color: GeneralColors.darkTurquoise,
                         size: 25,
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        await TodoLocalRepository().deleteTodoRepo(todo.id!);
+                      },
                     ),
                   ),
                 ],

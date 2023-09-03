@@ -3,7 +3,12 @@ import 'package:roundcheckbox/roundcheckbox.dart';
 import 'package:todolist/theme/constants.dart';
 
 class CheckboxWidget extends StatelessWidget {
-  const CheckboxWidget({super.key});
+  final bool isDone;
+
+  const CheckboxWidget({
+    super.key,
+    required this.isDone,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,7 @@ class CheckboxWidget extends StatelessWidget {
             color: GeneralColors.darkTurquoise,
             size: 25,
           ),
-          isChecked: false,
+          isChecked: isDone,
           size: 30,
           checkedWidget: const Icon(
             Icons.check,

@@ -21,12 +21,7 @@ class AppBarListScreen extends StatelessWidget implements PreferredSizeWidget {
             Icons.add,
           ),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const CreateTodoScreen(),
-              ),
-            );
+            Navigator.of(context).pushNamed('/create');
           },
         ),
       ],
