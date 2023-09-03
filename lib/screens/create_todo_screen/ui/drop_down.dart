@@ -83,7 +83,6 @@ class _DropDownState extends State<DropDownWidget> {
           onSelected: (ImortanceLabel? huj) {
             setState(() {
               selectedColor = huj;
-              print(selectedColor);
             });
           },
         ),
