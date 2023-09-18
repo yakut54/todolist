@@ -14,6 +14,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     on<AddTodoEvent>(_onAddTodo);
     on<DeleteAllTodosEvent>(_onDelAllTodo);
     on<UpdateIsDoneEvent>(_onUpdateIsDone);
+    on<DeleteTodoEvent>(_onDelTodo);
   }
 
   void _onGetAllTodos(LoadAllTodosEvent event, Emitter<TodoState> emit) async {
@@ -40,6 +41,14 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     final isDone = event.todo.isDone == 0 ? 1 : 0;
 
     await LDB().updateTodo(event.todo.copyWith(isDone: isDone));
+
+    List<Todo> alltodosDb = await LDB().getTodos();
+    emit(TodoState(allTodos: List.from(alltodosDb)));
+  }
+
+  void _onDelTodo(DeleteTodoEvent event, Emitter<TodoState> emit) async {
+    await LDB().deleteTodo(event.todo.id!);
+
     List<Todo> alltodosDb = await LDB().getTodos();
     emit(TodoState(allTodos: List.from(alltodosDb)));
   }

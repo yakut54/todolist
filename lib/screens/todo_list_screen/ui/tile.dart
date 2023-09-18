@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '/bloc/todo_bloc.dart';
 import '/db/todo_model.dart';
 import '/theme/constants.dart';
 import '/screens/todo_list_screen/ui/checkbox.dart';
@@ -101,13 +103,21 @@ class TileBtn extends StatelessWidget {
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                     ),
-                    child: IconButton(
-                      icon: const Icon(
-                        CupertinoIcons.delete,
-                        color: GeneralColors.darkTurquoise,
-                        size: 25,
-                      ),
-                      onPressed: () async {},
+                    child: BlocBuilder<TodoBloc, TodoState>(
+                      builder: (context, state) {
+                        return IconButton(
+                          icon: const Icon(
+                            CupertinoIcons.delete,
+                            color: GeneralColors.darkTurquoise,
+                            size: 25,
+                          ),
+                          onPressed: () async {
+                            context
+                                .read<TodoBloc>()
+                                .add(DeleteTodoEvent(todo: todo));
+                          },
+                        );
+                      },
                     ),
                   ),
                 ],
