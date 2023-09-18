@@ -1,15 +1,15 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todolist/db/db.dart';
 import 'package:todolist/db/todo_model.dart';
-import 'package:todolist/repository/local_todo_repo.dart';
 import 'package:todolist/theme/constants.dart';
 import 'package:todolist/screens/todo_list_screen/ui/checkbox.dart';
 
-class TaleBtn extends StatelessWidget {
+class TileBtn extends StatelessWidget {
   final Todo todo;
 
-  const TaleBtn({
+  const TileBtn({
     super.key,
     required this.todo,
   });
@@ -17,13 +17,13 @@ class TaleBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    Color importanceColor;
+    Color? importanceColor;
 
     if (todo.importance == 'green') {
       importanceColor = GeneralColors.green;
     } else if (todo.importance == 'blue') {
       importanceColor = GeneralColors.blue;
-    } else {
+    } else if (todo.importance == 'violet') {
       importanceColor = GeneralColors.violet;
     }
 
@@ -51,8 +51,7 @@ class TaleBtn extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 45,
-                  child:
-                      CheckboxWidget(isDone: todo.isDone == 1 ? true : false),
+                  child: CheckboxWidget(todo: todo),
                 ),
               ],
             ),
@@ -69,7 +68,7 @@ class TaleBtn extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          todo.name,
+                          todo.title,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           softWrap: false,
@@ -108,9 +107,7 @@ class TaleBtn extends StatelessWidget {
                         color: GeneralColors.darkTurquoise,
                         size: 25,
                       ),
-                      onPressed: () async {
-                        await TodoLocalRepository().deleteTodoRepo(todo.id!);
-                      },
+                      onPressed: () async {},
                     ),
                   ),
                 ],

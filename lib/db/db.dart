@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'todo_model.dart';
+import '/db/todo_model.dart';
 
 const dbName = 'todos';
 
@@ -10,7 +10,7 @@ class LDB {
 
   Future get database async {
     if (_database != null) return _database;
-    _database = await _initializeDB('todos_database3.db');
+    _database = await _initializeDB('todos_database4.db');
     return _database;
   }
 
@@ -25,10 +25,11 @@ class LDB {
     await db.execute('''
     CREATE TABLE $dbName(
       id INTEGER PRIMARY KEY,
-      name TEXT, 
       isDone INTEGER,
+      isDeleted INTEGER,
       begin INTEGER,
       deadline INTEGER,
+      title TEXT, 
       importance TEXT
     )
     ''');
@@ -41,10 +42,11 @@ class LDB {
     return List.generate(maps.length, (i) {
       return Todo(
         id: maps[i]['id'],
-        name: maps[i]['name'],
         isDone: maps[i]['isDone'],
+        isDeleted: maps[i]['isDeleted'],
         begin: maps[i]['begin'],
         deadline: maps[i]['deadline'],
+        title: maps[i]['title'],
         importance: maps[i]['importance'],
       );
     });
@@ -53,13 +55,15 @@ class LDB {
   Future<void> insertTodo(Todo todo) async {
     final db = await database;
 
+    print(todo);
+
     await db.insert(
       dbName,
       todo.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
 
-    print('Готово, хозяин! insertTodo');
+    print(db);
   }
 
   Future<void> updateTodo(Todo todo) async {
