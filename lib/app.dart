@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todolist/router/router.dart';
-import 'package:todolist/theme/theme.dart';
+import '/router/router.dart';
+import '/theme/theme.dart';
 
 import 'bloc/todo_bloc.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/constants.dart';
+import '/theme/constants.dart';
 
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget({super.key});
@@ -16,11 +16,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-          top: 20, left: 10, right: 10, bottom: 10),
+      margin: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
       child: TextField(
         style: const TextStyle(
           fontSize: 22,
@@ -35,14 +35,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           labelText: 'Enter Todo',
           // Set border for enabled state (default)
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-                width: 2, color: GeneralColors.orangePeach),
+            borderSide:
+                const BorderSide(width: 2, color: GeneralColors.orangePeach),
             borderRadius: BorderRadius.circular(5),
           ),
           // Set border for focused state
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-                width: 2, color: GeneralColors.orangePeach),
+            borderSide:
+                const BorderSide(width: 2, color: GeneralColors.orangePeach),
             borderRadius: BorderRadius.circular(5),
           ),
           hintText: "...",

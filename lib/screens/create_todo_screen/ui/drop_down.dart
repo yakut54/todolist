@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/constants.dart';
+import '/theme/constants.dart';
 
 class DropDownWidget extends StatefulWidget {
   const DropDownWidget({super.key});
@@ -18,22 +18,20 @@ class _DropDownState extends State<DropDownWidget> {
     for (final ImortanceLabel item in ImortanceLabel.values) {
       imortanceEntries.add(
         DropdownMenuEntry<ImortanceLabel>(
-          leadingIcon: Icon(
-            item.icon,
-            color: item.color,
-          ),
-          value: item,
-          label: item.name,
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(GeneralColors.grayblue),
-            textStyle: MaterialStateProperty.all(
-              const TextStyle(
-                fontFamily: FontFamily.regularFont,
-                fontSize: 22
-              ),
+            leadingIcon: Icon(
+              item.icon,
+              color: item.color,
             ),
-          )
-        ),
+            value: item,
+            label: item.name,
+            style: ButtonStyle(
+              foregroundColor:
+                  MaterialStateProperty.all(GeneralColors.grayblue),
+              textStyle: MaterialStateProperty.all(
+                const TextStyle(
+                    fontFamily: FontFamily.regularFont, fontSize: 22),
+              ),
+            )),
       );
     }
 

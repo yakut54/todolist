@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/constants.dart';
-import 'package:todolist/widgets/ui/background_gradient.dart';
-import 'rich_text.dart';
+import '/theme/constants.dart';
+import '/widgets/ui/background_gradient.dart';
+import './rich_text.dart';
 
 class SingleTodoScreen extends StatefulWidget {
   const SingleTodoScreen({super.key});
@@ -148,4 +148,3 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     );
   }
 }
-

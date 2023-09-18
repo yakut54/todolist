@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/constants.dart';
+import '/theme/constants.dart';
 
 final theme = ThemeData(
   scaffoldBackgroundColor: const Color(0x00000000),

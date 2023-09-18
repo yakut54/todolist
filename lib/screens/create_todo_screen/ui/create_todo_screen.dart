@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/db/db.dart';
-import 'package:todolist/screens/create_todo_screen/index.dart';
-import 'package:todolist/theme/constants.dart';
-import 'package:todolist/widgets/index.dart';
+import '/screens/create_todo_screen/index.dart';
+import '/theme/constants.dart';
+import '/widgets/index.dart';
 
 class CreateTodoScreen extends StatefulWidget {
   const CreateTodoScreen({super.key});
@@ -32,7 +31,8 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                foregroundColor: GeneralColors.darkTurquoise, // button text color
+                foregroundColor:
+                    GeneralColors.darkTurquoise, // button text color
               ),
             ),
           ),
@@ -136,10 +136,3 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
     );
   }
 }
-
-// DatePickerDialog(
-//   initialDate: DateTime(2023, 12, 24),
-//   firstDate: DateTime(1900),
-//   lastDate: DateTime(2100),
-//   keyboardType: TextInputType.text,
-// ),

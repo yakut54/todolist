@@ -2,9 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todolist/db/todo_model.dart';
-import 'package:todolist/theme/constants.dart';
-import 'package:todolist/screens/todo_list_screen/ui/checkbox.dart';
+import '/db/todo_model.dart';
+import '/theme/constants.dart';
+import '/screens/todo_list_screen/ui/checkbox.dart';
 
 class TileBtn extends StatelessWidget {
   final Todo todo;

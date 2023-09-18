@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todolist/theme/constants.dart';
+import '/theme/constants.dart';
 
 class AppBarListScreen extends StatelessWidget implements PreferredSizeWidget {
   const AppBarListScreen({super.key});
