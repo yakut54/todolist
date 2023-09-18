@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todolist/theme/constants.dart';
 
-import '/db/todo_model.dart';
 import '/bloc/todo_bloc.dart';
 import '/widgets/index.dart';
 import '/screens/todo_list_screen/index.dart';

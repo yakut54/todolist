@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       create: (_) => TodoBloc(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Todo List',
+        title: 'Todo List Part II',
         theme: theme,
         routes: routes,
       ),
