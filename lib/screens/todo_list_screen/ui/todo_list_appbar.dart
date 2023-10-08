@@ -20,7 +20,8 @@ class AppBarListScreen extends StatelessWidget implements PreferredSizeWidget {
             Icons.add,
           ),
           onPressed: () {
-            Navigator.of(context).pushNamed('/create');
+            Navigator.of(context)
+                .pushNamed('/create', arguments: {'createOrEdit': 'create'});
           },
         ),
       ],

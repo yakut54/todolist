@@ -41,3 +41,11 @@ class DeleteTodoEvent extends TodoEvent {
   @override
   List<Object> get props => [todo];
 }
+
+class CreateEditableTodoEvent extends TodoEvent {
+  final Todo todo;
+  const CreateEditableTodoEvent({required this.todo});
+
+  @override
+  List<Object> get props => [todo];
+}

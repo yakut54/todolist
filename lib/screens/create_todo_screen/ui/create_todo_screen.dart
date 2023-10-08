@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '/bloc/todo_bloc.dart';
 import '/screens/create_todo_screen/index.dart';
 import '/theme/constants.dart';
 import '/widgets/index.dart';
@@ -48,6 +50,15 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <String, dynamic>{}) as Map;
+    final createOrEdit = arguments['createOrEdit'];
+    if (createOrEdit == 'create') {
+      context
+          .read<TodoBloc>()
+          .add(CreateEditableTodoEvent(todo: defaultEditableTodo));
+    }
+
     return Container(
       decoration: backgroundGradient,
       child: Scaffold(
@@ -59,78 +70,88 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
             ),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: Text('Create Screen'.toUpperCase()),
+          title: Text(createOrEdit == 'edit'
+              ? 'Редактировать задачу'.toUpperCase()
+              : 'Создать задачу'.toUpperCase()),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const TextFieldWidget(),
-              const Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Row(
-                  children: [DropDownWidget(), DegreeImportanceIconWidget()],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+        body: BlocBuilder<TodoBloc, TodoState>(
+          builder: (context, state) {
+            return SingleChildScrollView(
+              child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5, left: 10),
-                    child: ElevatedButton(
-                      style: const ButtonStyle(
-                        padding: MaterialStatePropertyAll<EdgeInsets>(
-                          EdgeInsets.symmetric(
-                            vertical: 9,
-                            horizontal: 15,
-                          ),
-                        ),
-                        backgroundColor:
-                            MaterialStatePropertyAll(GeneralColors.platinum),
-                      ),
-                      child: const Text(
-                        'Дедлайн',
-                        style: TextStyle(
-                          fontFamily: FontFamily.semiFont,
-                          fontSize: FontSize.mainFont,
-                          color: GeneralColors.grayblue,
-                        ),
-                      ),
-                      onPressed: () {
-                        selectDatePicker();
-                        print(date.microsecondsSinceEpoch);
-                      },
+                  const TextFieldWidget(),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: Row(
+                      children: [
+                        DropDownWidget(),
+                        DegreeImportanceIconWidget()
+                      ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-                    child: ElevatedButton(
-                      style: const ButtonStyle(
-                        padding: MaterialStatePropertyAll<EdgeInsets>(
-                          EdgeInsets.symmetric(
-                            vertical: 9,
-                            horizontal: 15,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5, left: 10),
+                        child: ElevatedButton(
+                          style: const ButtonStyle(
+                            padding: MaterialStatePropertyAll<EdgeInsets>(
+                              EdgeInsets.symmetric(
+                                vertical: 9,
+                                horizontal: 15,
+                              ),
+                            ),
+                            backgroundColor: MaterialStatePropertyAll(
+                                GeneralColors.platinum),
                           ),
+                          child: const Text(
+                            'Дедлайн',
+                            style: TextStyle(
+                              fontFamily: FontFamily.semiFont,
+                              fontSize: FontSize.mainFont,
+                              color: GeneralColors.grayblue,
+                            ),
+                          ),
+                          onPressed: () {
+                            selectDatePicker();
+                            print(date.microsecondsSinceEpoch);
+                          },
                         ),
-                        backgroundColor:
-                            MaterialStatePropertyAll(GeneralColors.orangePeach),
                       ),
-                      child: const Text(
-                        'Cохранить',
-                        style: TextStyle(
-                          fontFamily: FontFamily.semiFont,
-                          fontSize: FontSize.mainFont,
-                          color: GeneralColors.grayblue,
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 5, left: 10, right: 10),
+                        child: ElevatedButton(
+                          style: const ButtonStyle(
+                            padding: MaterialStatePropertyAll<EdgeInsets>(
+                              EdgeInsets.symmetric(
+                                vertical: 9,
+                                horizontal: 15,
+                              ),
+                            ),
+                            backgroundColor: MaterialStatePropertyAll(
+                                GeneralColors.orangePeach),
+                          ),
+                          child: const Text(
+                            'Cохранить',
+                            style: TextStyle(
+                              fontFamily: FontFamily.semiFont,
+                              fontSize: FontSize.mainFont,
+                              color: GeneralColors.grayblue,
+                            ),
+                          ),
+                          onPressed: () {
+                            print('Save for Database');
+                          },
                         ),
                       ),
-                      onPressed: () {
-                        print('Save for Database');
-                      },
-                    ),
-                  ),
+                    ],
+                  )
                 ],
-              )
-            ],
-          ),
+              ),
+            );
+          },
         ),
       ),
     );
