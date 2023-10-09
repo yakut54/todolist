@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '/bloc/todo_bloc.dart';
+import '/blocs/todo_bloc/todo_bloc.dart';
 import '/db/todo_model.dart';
 import '/theme/constants.dart';
 import '/screens/todo_list_screen/ui/checkbox.dart';

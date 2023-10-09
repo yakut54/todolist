@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '/bloc/todo_bloc.dart';
+import '/blocs/todo_bloc/todo_bloc.dart';
 import '/theme/constants.dart';
 import '/widgets/ui/background_gradient.dart';
 import './rich_text.dart';

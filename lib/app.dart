@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '/blocs/todo_bloc/todo_bloc.dart';
 import '/router/router.dart';
 import '/theme/theme.dart';
-
-import 'bloc/todo_bloc.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

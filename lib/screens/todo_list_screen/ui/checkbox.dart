@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
+import '/blocs/todo_bloc/todo_bloc.dart';
 import '/db/todo_model.dart';
 import '/theme/constants.dart';
-import '/bloc/todo_bloc.dart';
 
 class CheckboxWidget extends StatelessWidget {
   final Todo todo;

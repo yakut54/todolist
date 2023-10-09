@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '/bloc/todo_bloc.dart';
+import '/blocs/todo_bloc/todo_bloc.dart';
 import '/theme/constants.dart';
 
 class DropDownWidget extends StatefulWidget {
@@ -83,6 +83,10 @@ class _DropDownState extends State<DropDownWidget> {
               onSelected: (ImportanceLabel? value) {
                 setState(() {
                   selectedLabel = value;
+
+                  context.read<TodoBloc>().add(UpdateColorEvent(
+                      todo: state.editableTodo!
+                          .copyWith(importance: _getImortanceString(value))));
                 });
               },
             ),
@@ -115,4 +119,14 @@ ImportanceLabel _getImortance(TodoState state) {
     return ImportanceLabel.blue;
   }
   return ImportanceLabel.violet;
+}
+
+String _getImortanceString(value) {
+  if (value == ImportanceLabel.green) {
+    return 'green';
+  }
+  if (value == ImportanceLabel.blue) {
+    return 'blue';
+  }
+  return 'violet';
 }

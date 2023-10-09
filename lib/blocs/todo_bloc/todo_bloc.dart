@@ -23,6 +23,9 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     on<UpdateIsDoneEvent>(_onUpdateIsDone);
     on<DeleteTodoEvent>(_onDelTodo);
     on<CreateEditableTodoEvent>(_onCreateEditableTodo);
+    on<UpdateColorEvent>(_onUpdateColor);
+    on<UpdateTitleEvent>(_onUpdateTitle);
+    on<ResetEvent>(_onReset);
   }
 
   void _onGetAllTodos(LoadAllTodosEvent event, Emitter<TodoState> emit) async {
@@ -66,7 +69,22 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   }
 
   void _onCreateEditableTodo(
-      CreateEditableTodoEvent event, Emitter<TodoState> emit) async {
+      CreateEditableTodoEvent event, Emitter<TodoState> emit) {
     emit(TodoState(allTodos: state.allTodos, editableTodo: event.todo));
+  }
+
+  void _onUpdateColor(UpdateColorEvent event, Emitter<TodoState> emit) {
+    print(event);
+    emit(TodoState(allTodos: state.allTodos, editableTodo: event.todo));
+  }
+
+  void _onUpdateTitle(UpdateTitleEvent event, Emitter<TodoState> emit) {
+    emit(TodoState(allTodos: state.allTodos, editableTodo: event.todo));
+  }
+
+  void _onReset(ResetEvent event, Emitter<TodoState> emit) {
+    emit(
+      TodoState(allTodos: state.allTodos, editableTodo: defaultEditableTodo),
+    );
   }
 }

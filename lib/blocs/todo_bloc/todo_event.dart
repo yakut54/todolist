@@ -49,3 +49,30 @@ class CreateEditableTodoEvent extends TodoEvent {
   @override
   List<Object> get props => [todo];
 }
+
+class UpdateColorEvent extends TodoEvent {
+  final Todo todo;
+  const UpdateColorEvent({required this.todo});
+
+  @override
+  List<Object> get props => [todo];
+}
+
+class UpdateTitleEvent extends TodoEvent {
+  final Todo todo;
+  const UpdateTitleEvent({required this.todo});
+
+  @override
+  List<Object> get props => [todo];
+}
+
+class ResetEvent extends TodoEvent {
+  final Todo todo;
+  const ResetEvent({required this.todo});
+
+  @override
+  List<Object> get props => [todo];
+}
+
+// update deadline
+// save editableTodo to Todo DB

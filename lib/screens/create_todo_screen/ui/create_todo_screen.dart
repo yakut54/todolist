@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '/bloc/todo_bloc.dart';
+import '/blocs/todo_bloc/todo_bloc.dart';
 import '/screens/create_todo_screen/index.dart';
 import '/theme/constants.dart';
 import '/widgets/index.dart';
@@ -53,6 +53,7 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
     final arguments = (ModalRoute.of(context)?.settings.arguments ??
         <String, dynamic>{}) as Map;
     final createOrEdit = arguments['createOrEdit'];
+
     if (createOrEdit == 'create') {
       context
           .read<TodoBloc>()
@@ -76,16 +77,18 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
         ),
         body: BlocBuilder<TodoBloc, TodoState>(
           builder: (context, state) {
+            String color = state.editableTodo!.importance;
+
             return SingleChildScrollView(
               child: Column(
                 children: [
                   const TextFieldWidget(),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10, right: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     child: Row(
                       children: [
-                        DropDownWidget(),
-                        DegreeImportanceIconWidget()
+                        const DropDownWidget(),
+                        DegreeImportanceIconWidget(color: color)
                       ],
                     ),
                   ),
